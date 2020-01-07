@@ -1,0 +1,42 @@
+HELP.md
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+/build/
+
+### VS Code ###
+.vscode/
+
+### maven ###
+.mvn
+mvnw.cmd
+mvnw
+
+
+### python ###
+**.pyc
+
+# misc
+/src/main/resources/vpn-db/test.sql
+src/main/resources/secrets.properties

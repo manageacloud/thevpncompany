@@ -1,0 +1,18 @@
+[Unit]
+Description=TheVPNCompany
+After=syslog.target
+
+[Service]
+User=vpncompany
+
+# Uncomment for production environment
+#Environment=ENV=prod
+
+# Uncomment for development environment
+Environment=ENV=dev
+ExecStart=/opt/jdk-12/bin/java -Djava.security.egd=file:/dev/./urandom -jar /var/thevpncompany/vpn-0.0.1-SNAPSHOT.jar
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target
+

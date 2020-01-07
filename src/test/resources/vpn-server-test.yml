@@ -1,0 +1,29 @@
+# Spring properties
+spring:
+  application:
+    name: vpn-service  # Identify this application
+  freemarker:
+    enabled: true     # Ignore Eureka dashboard FreeMarker templates
+    cache: false
+    suffix: .ftl
+    template-loader-path:  classpath:/templates/landing
+
+# domain for all the clients
+vpn.domain.client: test-cloud.thevpncompany.com.au
+
+# breanstalkd
+beanstalkd.host: 127.0.0.1
+beanstalkd.port: 11300
+
+# beanstalk tubes
+tube.server.create: tube_orchestration_test
+tube.cert.create: tube_cert_create_test
+
+# Communication emails
+email.support: support@my-domain.com
+email.info: info@my-domain.com
+
+#
+#  Communication of technical issues
+#
+email.tech: tech@my-domain.com

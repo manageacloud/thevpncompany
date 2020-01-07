@@ -1,0 +1,9 @@
+certifi==2019.6.16
+chardet==3.0.4
+greenstalk==0.5.2
+idna==2.8
+pexpect==4.7.0
+ptyprocess==0.6.0
+requests==2.22.0
+urllib3==1.25.3
+pygments

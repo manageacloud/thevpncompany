@@ -1,0 +1,44 @@
+[Unit]
+Description=VPN Orchestration Service
+
+[Service]
+
+# Command to execute when the service is started
+ExecStart=/usr/bin/python3 -m thevpncompany.consumer_orchestration
+
+# Disable Python's buffering of STDOUT and STDERR, so that output from the
+# service shows up immediately in systemd's logs
+Environment=PYTHONUNBUFFERED=1
+Environment=ENV=prod
+
+# Manageacloud credentails needs to be configured
+# Don't forget to put read only root permissions
+# chown root:root /lib/systemd/system/vpn_orchestration.service
+# chmod 700 /lib/systemd/system/vpn_orchestration.service
+#Environment=MANAGEACLOUD_AUTH=
+
+# The VPN Company API Key
+#Environment=TVC_API_KEY=1234
+
+# Repsitory and private key linked to the deployment key to allow read-only access to the repository
+#Environment=CONFIGURATION_REPOSITORY=git@bitbucket.org:path_to/my_repository.git
+#Environment='REPOSITORY_PRIVATE_KEY=\n\
+#-----BEGIN RSA PRIVATE KEY-----\n\
+#PRIVATE_KEY THAT CAN ACCESS TO THE REPOSITORY DATA\n\
+#-----END RSA PRIVATE KEY-----\n\
+#'
+
+# Automatically restart the service if it crashes
+Restart=on-failure
+
+Type=simple
+
+# Use a dedicated user to run our service
+User=vpncompany
+
+
+[Install]
+
+# Tell systemd to automatically start this service when the system boots
+# (assuming the service is enabled)
+WantedBy=default.target

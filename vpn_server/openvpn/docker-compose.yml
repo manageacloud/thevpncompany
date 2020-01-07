@@ -1,0 +1,16 @@
+version: '2'
+services:
+  openvpn:
+    privileged: true
+    cap_add:
+      - NET_ADMIN
+    image: kylemanna/openvpn:2.4
+    container_name: openvpn
+    ports:
+      - "2296:1194/udp"
+      - "127.0.0.1:7515:7505"
+    restart: always
+    volumes:
+      - /tmp/etc_openvpn:/etc/openvpn
+    environment:
+      OVPN_PORT: 2296

@@ -1,0 +1,67 @@
+# Spring properties
+spring:
+  application:
+    name: vpn-service  # Identify this application
+  freemarker:
+    enabled: true     # Ignore Eureka dashboard FreeMarker templates
+    cache: false
+    suffix: .ftl
+    template-loader-path:  classpath:/templates/landing, classpath:/templates/email
+    settings:
+      template_exception_handler: rethrow
+  mail:
+    default-encoding: UTF-8
+    host: os.api.manageacloud.com
+    #username: username@gmail.com
+    #password: secret
+    port: 2525
+    #properties:
+    #  mail:
+    #    smtp:
+    #      auth: true
+    #      starttls:
+    #        enable: true
+    protocol: smtp
+    test-connection: false
+
+  # login capabilities
+#  security.oauth2.client.registration:
+#    google:
+#      client-id: ${GOOLE_CLIENT_ID}
+#      client-secret: ${GOOLE_SECRET}
+
+
+# Map the error path to error template (for Thymeleaf)
+error.path: /error
+
+# HTTP Server
+server.port: 8111   # HTTP (Tomcat) port
+
+
+# disable logging of a createBlob that throws an warning
+logging:
+  level:
+    org.hibernate.engine.jdbc.env.internal.LobCreatorBuilderImpl: ERROR
+
+# domain for all the clients
+vpn.domain.client: cloud.thevpncompany.com.au
+
+# breanstalkd
+beanstalkd.host: 127.0.0.1
+beanstalkd.port: 11300
+
+# orchestration queues
+# Consumer daemon server_creation_consumer.py
+# beanstalk tubes
+tube.server.create: tube_orchestration
+tube.cert.create: tube_cert_create
+
+# Communication emails
+# TODO link configuration. Please modify Email.java file.
+email.support: support@my-domain.com
+email.info: info@my-domain.com
+
+#
+#  Communication of technical issues
+#
+email.tech: tech@my-domain.com

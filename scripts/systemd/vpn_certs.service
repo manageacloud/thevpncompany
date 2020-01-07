@@ -1,0 +1,38 @@
+[Unit]
+Description=VPN Certificates Service
+
+[Service]
+
+# Command to execute when the service is started
+ExecStart=/usr/bin/python3 -m thevpncompany.consumer_openvpn_certificates
+
+# Disable Python's buffering of STDOUT and STDERR, so that output from the
+# service shows up immediately in systemd's logs
+Environment=PYTHONUNBUFFERED=1
+Environment=ENV=dev
+
+#
+#  Set the password for your private certificate.
+#  Don't forget to put read only root permissions
+#  chown root:root /lib/systemd/system/vpn_certs.service
+#  chmod 700 /lib/systemd/system/vpn_certs.service
+#
+#Environment="CA_PASSWORD=your CA password"
+
+# The VPN Company API Key
+#Environment=TVC_API_KEY=1234
+
+# Automatically restart the service if it crashes
+Restart=on-failure
+
+Type=simple
+
+# Use a dedicated user to run our service
+User=vpncompany
+
+
+[Install]
+
+# Tell systemd to automatically start this service when the system boots
+# (assuming the service is enabled)
+WantedBy=default.target
