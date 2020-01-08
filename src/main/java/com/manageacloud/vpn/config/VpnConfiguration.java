@@ -49,16 +49,16 @@ public class VpnConfiguration implements WebMvcConfigurer {
     @Value("${pinnet.public_key}")
     private String pinnetPublicKey;
 
-    @Value("${pinnet.secret_key")
+    @Value("${pinnet.secret_key}")
     private String pinnetSecretKey;
 
-    @Value("${pinnet.token_monthly_plan")
+    @Value("${pinnet.token_monthly_plan}")
     private String pinnetTokenMonthlyPlan;
 
-    @Value("${pinnet.token_6_months_plan")
+    @Value("${pinnet.token_6_months_plan}")
     private String pinnetToken6MonthsPlan;
 
-    @Value("${pinnet.token_12_months_plan")
+    @Value("${pinnet.token_12_months_plan}")
     private String pinnetToken12MonthsPlan;
 
     private final APIAuthenticationInterceptor apiAuthenticationInterceptor;
