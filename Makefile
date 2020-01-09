@@ -10,7 +10,7 @@ build:
 
 #  Hot deployment example
 deploy: build
-	rsync -uz --progress target/vpn-0.0.1-SNAPSHOT.jar root@thecompany.com.au:/var/thevpncompany/
+	rsync -uz --progress target/vpn-0.0.1-SNAPSHOT.jar root@thevpncompany.com.au:/var/thevpncompany/
 	ssh root@thevpncompany.com.au -C "systemctl restart thevpncompany"
 
 make run: build
